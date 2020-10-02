@@ -5,6 +5,7 @@ import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
 import org.kohsuke.args4j.Option;
 
+import java.io.File;
 import java.io.IOException;
 
 public class uniqLauncher {
@@ -22,12 +23,12 @@ public class uniqLauncher {
     private final int noSym = 0;
 
     @Option(name = "-o", metaVar = "ofile", usage = "Output file name")
-    private final String outputFile = null;
+    private final File outputFile = null;
 
     @Argument(metaVar = "file", usage = "Input file name")
-    private final String inputFile = null;
+    private final File inputFile = null;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         new uniqLauncher().launch(args);
     }
 
@@ -38,7 +39,7 @@ public class uniqLauncher {
             parser.parseArgument(args);
         } catch (CmdLineException e) {
             System.err.println(e.getMessage());
-            System.err.println("java -jar uniq.jar -i -u -c -s num -o ofline file");
+            System.err.println("java -jar uniq.jar -i -u -c -s num -o ofile file");
             parser.printUsage(System.err);
             return;
         }
