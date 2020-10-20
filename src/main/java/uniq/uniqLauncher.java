@@ -10,23 +10,23 @@ import java.io.IOException;
 
 public class uniqLauncher {
 
-    @Option(name = "-i", usage = "Сase-insensitive")
-    private final boolean noCase = false;
+    @Option(name = "-i", metaVar = "NoCase", usage = "Сase-insensitive")
+    private boolean noCase = false;
 
-    @Option(name = "-u", usage = "Show only unique rows")
-    private final boolean uRows = false;
+    @Option(name = "-u", metaVar = "URows", usage = "Show only unique rows")
+    private boolean uRows = false;
 
-    @Option(name = "-c", usage = "Show changes")
-    private final boolean changes = false;
+    @Option(name = "-c", metaVar = "Changes", usage = "Show changes")
+    private boolean changes = false;
 
-    @Option(name = "-s", metaVar = "num", usage = "Ignore first amount of symbols")
-    private final int noSym = 0;
+    @Option(name = "-s", metaVar = "Num", usage = "Ignore first amount of symbols")
+    private int noSym = 0;
 
-    @Option(name = "-o", metaVar = "ofile", usage = "Output file name")
-    private final File outputFile = null;
+    @Option(name = "-o", metaVar = "Output", usage = "Output file name")
+    private File outputFile = null;
 
-    @Argument(metaVar = "file", usage = "Input file name")
-    private final File inputFile = null;
+    @Argument(metaVar = "Input", usage = "Input file name")
+    private File inputFile = null;
 
     public static void main(String[] args) throws IOException {
         new uniqLauncher().launch(args);

@@ -38,25 +38,31 @@ public class Uniq {
         }
         try {
             while ((line = reader.readLine()) != null) {
-                if ((line.equals(prLine) || prLine != null &&
-                        (noCase && line.equalsIgnoreCase(prLine) ||
-                        noSym > 0 && line.substring(noSym).equals(prLine.substring(noSym))))) {
+                if (Equals(line, prLine)) {
                     num++;
                 } else {
-                    if (prLine != null) {
-                        if (!uRows && !changes) writer.write(prLine + System.lineSeparator());
-                        if (uRows && num == 1) writer.write(prLine + System.lineSeparator());
-                        if (changes && num > 1) writer.write(num + ") ");
-                        writer.write(prLine + System.lineSeparator());
-                        }
-                    }
-                    prLine = line;
-                    num = 1;
+                    if (prLine == null) return;
+                    if (!uRows && !changes) writer.write(prLine + System.lineSeparator());
+                    if (uRows && num == 1) writer.write(prLine + System.lineSeparator());
+                    if (changes && num > 1) writer.write(num + ") ");
+                    writer.write(prLine + System.lineSeparator());
                 }
+
+                prLine = line;
+                num = 1;
+            }
 
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    public boolean Equals(String line, String prLine) {
+        if (prLine == null) return false;
+        if (line.equals(prLine)) return true;
+        if (noCase && line.equalsIgnoreCase(prLine)) return true;
+        if (noSym > 0 && line.substring(noSym).equals(prLine.substring(noSym))) return true;
+        return false;
     }
 
 }
