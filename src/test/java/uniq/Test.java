@@ -1,85 +1,85 @@
 package uniq;
 
-import org.junit.*;
-
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.List;
-
 import static org.junit.Assert.assertEquals;
+
 
 public class Test {
 
+    private final ByteArrayOutputStream output = new ByteArrayOutputStream();
+
     @org.junit.Test
     public void test1() throws IOException {
-        String[] args = new String[]{"-o", "src/test/java/uniq/res/Test", "src/test/java/uniq/res/File"};
+        String output = "src/test/java/uniq/res/Test";
+        String[] args = {"-i", "-c", "-o", output, "src/test/java/uniq/res/File"};
+        String test1 = "src/test/java/uniq/res/test1";
         uniqLauncher.main(args);
-        List<String> test1 = Files.readAllLines(Paths.get("src/test/java/uniq/res/test1"));
-        List<String> Test = Files.readAllLines(Paths.get("src/test/java/uniq/res/Test"));
-        assertEquals(test1, Test);
+        assertEquals(Files.readAllLines(Paths.get(output)), Files.readAllLines(Paths.get(test1)));
     }
 
     @org.junit.Test
     public void test2() throws IOException {
-        String[] args = new String[]{"-i", "-o", "src/test/java/uniq/res/Test", "src/test/java/uniq/res/File"};
+        String output = "src/test/java/uniq/res/Test";
+        String[] args = {"-i", "-o", output, "src/test/java/uniq/res/File"};
+        String test2 = "src/test/java/uniq/res/test2";
         uniqLauncher.main(args);
-        List<String> test2 = Files.readAllLines(Paths.get("src/test/java/uniq/res/test2"));
-        List<String> Test = Files.readAllLines(Paths.get("src/test/java/uniq/res/Test"));
-        assertEquals(test2, Test);
+        assertEquals(Files.readAllLines(Paths.get(output)), Files.readAllLines(Paths.get(test2)));
     }
 
     @org.junit.Test
     public void test3() throws IOException {
-        String[] args = new String[]{"-s", "3", "-o", "src/test/java/uniq/res/Test", "src/test/java/uniq/res/File"};
+        String output = "src/test/java/uniq/res/Test";
+        String[] args = {"-s", "3", "-o", output, "src/test/java/uniq/res/File"};
+        String test3 = "src/test/java/uniq/res/test3";
         uniqLauncher.main(args);
-        List<String> test3 = Files.readAllLines(Paths.get("src/test/java/uniq/res/test3"));
-        List<String> Test = Files.readAllLines(Paths.get("src/test/java/uniq/res/Test"));
-        assertEquals(test3, Test);
+        assertEquals(Files.readAllLines(Paths.get(output)), Files.readAllLines(Paths.get(test3)));
     }
 
     @org.junit.Test
     public void test4() throws IOException {
-        String[] args = new String[]{"-c", "-o", "src/test/java/uniq/res/Test", "src/test/java/uniq/res/File"};
+        String output = "src/test/java/uniq/res/Test";
+        String[] args = {"-c", "-o", output, "src/test/java/uniq/res/File"};
+        String test4 = "src/test/java/uniq/res/test4";
         uniqLauncher.main(args);
-        List<String> test4 = Files.readAllLines(Paths.get("src/test/java/uniq/res/test4"));
-        List<String> Test = Files.readAllLines(Paths.get("src/test/java/uniq/res/Test"));
-        assertEquals(test4, Test);
+        assertEquals(Files.readAllLines(Paths.get(output)), Files.readAllLines(Paths.get(test4)));
     }
 
     @org.junit.Test
     public void test5() throws IOException {
-        String[] args = new String[]{"-u", "-o", "src/test/java/uniq/res/Test", "src/test/java/uniq/res/File"};
+        String output = "src/test/java/uniq/res/Test";
+        String[] args = {"-u", "-o", output, "src/test/java/uniq/res/File"};
+        String test5 = "src/test/java/uniq/res/test5";
         uniqLauncher.main(args);
-        List<String> test5 = Files.readAllLines(Paths.get("src/test/java/uniq/res/test5"));
-        List<String> Test = Files.readAllLines(Paths.get("src/test/java/uniq/res/Test"));
-        assertEquals(test5, Test);
+        assertEquals(Files.readAllLines(Paths.get(output)), Files.readAllLines(Paths.get(test5)));
     }
 
     @org.junit.Test
     public void test6() throws IOException {
-        String[] args = new String[]{"-i", "-s", "3", "-o", "src/test/java/uniq/res/Test", "src/test/java/uniq/res/File"};
+        String output = "src/test/java/uniq/res/Test";
+        String[] args = {"-i", "-s", "3", "-o", output, "src/test/java/uniq/res/File"};
+        String test6 = "src/test/java/uniq/res/test6";
         uniqLauncher.main(args);
-        List<String> test6 = Files.readAllLines(Paths.get("src/test/java/uniq/res/test6"));
-        List<String> Test = Files.readAllLines(Paths.get("src/test/java/uniq/res/Test"));
-        assertEquals(test6, Test);
+        assertEquals(Files.readAllLines(Paths.get(output)), Files.readAllLines(Paths.get(test6)));
     }
 
     @org.junit.Test
     public void test7() throws IOException {
-        String[] args = new String[]{"-c", "-s", "3", "-o", "src/test/java/uniq/res/Test", "src/test/java/uniq/res/File"};
+        String output = "src/test/java/uniq/res/Test";
+        String[] args = {"-c", "-s", "3", "-o", output, "src/test/java/uniq/res/File"};
+        String test7 = "src/test/java/uniq/res/test7";
         uniqLauncher.main(args);
-        List<String> test7 = Files.readAllLines(Paths.get("src/test/java/uniq/res/test7"));
-        List<String> Test = Files.readAllLines(Paths.get("src/test/java/uniq/res/Test"));
-        assertEquals(test7, Test);
+        assertEquals(Files.readAllLines(Paths.get(output)), Files.readAllLines(Paths.get(test7)));
     }
 
     @org.junit.Test
     public void test8() throws IOException {
-        String[] args = new String[]{"-i", "-u", "-o", "src/test/java/uniq/res/Test", "src/test/java/uniq/res/File"};
+        String output = "src/test/java/uniq/res/Test";
+        String[] args = {"-i", "-u", "-o", output, "src/test/java/uniq/res/File"};
+        String test8 = "src/test/java/uniq/res/test8";
         uniqLauncher.main(args);
-        List<String> test8 = Files.readAllLines(Paths.get("src/test/java/uniq/res/test8"));
-        List<String> Test = Files.readAllLines(Paths.get("src/test/java/uniq/res/Test"));
-        assertEquals(test8, Test);
+        assertEquals(Files.readAllLines(Paths.get(output)), Files.readAllLines(Paths.get(test8)));
     }
 }
